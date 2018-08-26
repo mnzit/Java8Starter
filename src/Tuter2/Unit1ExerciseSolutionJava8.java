@@ -5,6 +5,7 @@
  */
 package Tuter2;
 
+import Tuter2.Unit1Excercise.Condition;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author Dell
  */
-public class Unit1Excercise {
+public class Unit1ExerciseSolutionJava8 {
 
     public static void main(String[] args) {
 
@@ -26,32 +27,16 @@ public class Unit1Excercise {
         );
 
 //Step 1: Sort list by last name
-        Collections.sort(people, new Comparator<Person>() {
-            @Override
-            public int compare(Person o1, Person o2) {
-                return o1.getLastName().compareTo(o2.getLastName());
-            }
-        });
+        Collections.sort(people, (p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
 //Step 2: Create method that prints all elements in the list
 
         System.out.println("Printing all people");
-        printAll(people);
+        printConditionally(people, p -> true);
 
 //Step 3: Create method that prints all peopele with last name begining with S
         System.out.println("Printing all people whose lastname begans with S");
-        printConditionally(people, new Condition() {
-            @Override
-            public boolean test(Person p) {
-                return p.getLastName().startsWith("S");
-            }
-        });
+        printConditionally(people, p -> p.getLastName().startsWith("S"));
 
-    }
-
-    private static void printAll(List<Person> people) {
-        for (Person p : people) {
-            System.out.println(p);
-        }
     }
 
     private static void printConditionally(List<Person> people, Condition condition) {
@@ -61,10 +46,5 @@ public class Unit1Excercise {
             }
 
         }
-    }
-
-    interface Condition {
-
-        boolean test(Person p);
     }
 }
