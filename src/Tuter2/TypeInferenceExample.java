@@ -17,10 +17,10 @@ public class TypeInferenceExample {
     }
     
     public static void printLambda(StringLengthLamda l){
-        System.out.println(l.getLength("Shakyas"));
+        System.out.println(l.getLength("Shakya"));
     }
     
     interface StringLengthLamda{
-        int getLength(String s);
+        int getLength(String j);
     }
 }
