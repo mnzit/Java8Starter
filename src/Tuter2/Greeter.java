@@ -17,14 +17,12 @@ public class Greeter {
 
     public static void main(String[] args) {
         Greeter greeter = new Greeter();
-        HelloWorldGreeting helloworldgreeting = new HelloWorldGreeting();
+        Greeting helloworldgreeting = new HelloWorldGreeting();
         greeter.greet(helloworldgreeting);
 
-        myLambdaFunction = () -> System.out.println("Hello World!");
-
+        Greeting myLambdaFunction = () -> System.out.println("Hello World From Lambda!");      
+        myLambdaFunction.perform();
     }
 }
 
-interface myLambdaFunction{
-    void hello();
-}
+
