@@ -20,9 +20,17 @@ public class Greeter {
         Greeting helloworldgreeting = new HelloWorldGreeting();
         greeter.greet(helloworldgreeting);
 
-        Greeting myLambdaFunction = () -> System.out.println("Hello World From Lambda!");      
+        Greeting innerClassGreeting = new Greeting() {
+            @Override
+            public void perform() {
+                System.out.println("Hello World From inner class");
+            }
+        };
+        innerClassGreeting.perform();
+        
+        Greeting myLambdaFunction = () -> System.out.println("Hello World From Lambda!");
         myLambdaFunction.perform();
+        
+        greeter.greet(() -> System.out.println("Hello World From Lambda!"));
     }
 }
-
-
