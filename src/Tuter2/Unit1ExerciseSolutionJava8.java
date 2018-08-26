@@ -8,6 +8,7 @@ package Tuter2;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
@@ -15,9 +16,9 @@ import java.util.function.Predicate;
  * @author Dell
  */
 public class Unit1ExerciseSolutionJava8 {
-
+    
     public static void main(String[] args) {
-
+        
         List<Person> people = Arrays.asList(
                 new Person("Manjit", "Shakya", 20),
                 new Person("Sandesh", "Maharjan", 20),
@@ -30,20 +31,20 @@ public class Unit1ExerciseSolutionJava8 {
 //Step 2: Create method that prints all elements in the list
 
         System.out.println("Printing all people");
-        printConditionally(people, p -> true);
+        printConditionally(people, p -> true, p -> System.out.println(p));
 
 //Step 3: Create method that prints all peopele with last name begining with S
         System.out.println("Printing all people whose lastname begans with S");
-        printConditionally(people, p -> p.getLastName().startsWith("S"));
-
+        printConditionally(people, p -> p.getLastName().startsWith("S"), p -> System.out.println(p));
+        
     }
-
-    private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
+    
+    private static void printConditionally(List<Person> people, Predicate<Person> predicate, Consumer consumer) {
         for (Person p : people) {
             if (predicate.test(p)) {
-                System.out.println(p);
+                consumer.accept(p);
             }
-
+            
         }
     }
 }
