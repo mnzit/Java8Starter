@@ -10,15 +10,21 @@ package Tuter2;
  * @author Dell
  */
 public class Greeter {
-    
-    public void greet(Greeting greeting){
+
+    public void greet(Greeting greeting) {
         greeting.perform();
     }
-    
+
     public static void main(String[] args) {
         Greeter greeter = new Greeter();
         HelloWorldGreeting helloworldgreeting = new HelloWorldGreeting();
         greeter.greet(helloworldgreeting);
-        
+
+        myLambdaFunction = () -> System.out.println("Hello World!");
+
     }
+}
+
+interface myLambdaFunction{
+    void hello();
 }
