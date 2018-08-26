@@ -9,6 +9,7 @@ package Tuter2;
  *
  * @author Dell
  */
+@FunctionalInterface
 public interface Greeting {
     public void perform();
 }
