@@ -13,8 +13,9 @@ public class ClosureExample {
 
     public static void main(String[] args) {
         int a = 10;
-        int b = 20;
+        int b = 20; //Effectively final //In Java 7 We need to make it Final
         doProcess(a, i -> System.out.println(i + b));
+
     }
 
     public static void doProcess(int i, Process p) {
