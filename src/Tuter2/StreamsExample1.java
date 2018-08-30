@@ -7,6 +7,7 @@ package Tuter2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  *
@@ -22,6 +23,15 @@ public class StreamsExample1 {
                 new Person("Raman", "Karki", 20)
         );
         people.stream().filter(p -> p.getLastName().startsWith("S")).forEach(p -> System.out.println(p.getFirstName()));
+        
+        long count = people.stream().filter(p -> p.getLastName().startsWith("S")).count();
+        System.out.println(count);
+        
+        long count2 = people.parallelStream().filter(p -> p.getLastName().startsWith("S")).count();
+        System.out.println(count2);
+        
+//        Stream<Person> stream = people.stream();
+        
     }
 
 }
